@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" onload="buildDropDown()">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -52,11 +52,37 @@
     </nav>
 
     <main class="flex-shrink-0">
-        <div class="container">
-            <h1 class="mt-5">Template with dark fixed navbar and sticky footer</h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with padding-top: 60px; on the main > .container.</p>
+        <div class="container col-xxl-8 px-4 py-5 mt-5">
+            <div class="dogContainer">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary">Pick A Location</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div id="eventDropDown" class="dropdown-menu">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="/img/from-a-dog-to-a-super-dog.jpg" class="img-fluid">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
+
     </main>
 
 
