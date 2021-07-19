@@ -71,9 +71,9 @@ let filteredEvents = events;
 
 function buildDropDown() {
     let eventDD = document.getElementById("eventDropDown");
-
+    let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
     //distinct events from the events array
-    let distinctEvents = [...new Set(events.map(event => event.city))];
+    let distinctEvents = [...new Set(curEvents.map(event => event.city))];
 
     let linkHTMLEnd = '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="getEvents(this)" data-string="All">All</a>';
     let resultHTML = "";
@@ -89,7 +89,7 @@ function buildDropDown() {
 // this will display the stats
 function getEvents(element) {
     let city = element.getAttribute("data-string");
-    let curEvents = JSON.parse(localStorage.getItem("eventArrays")) || events;
+    let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
     filteredEvents = curEvents;
     document.getElementById("statsHeader").innerHTML = `stats for ${city} Events`;
     if (city != 'All') {
@@ -184,8 +184,14 @@ function saveEventData() {
     curEvents.push(obj);
 
     localStorage.setItem("eventsArray", JSON.stringify(curEvents));
+    filteredEvents = curEvents;
     //clear the form
     //Access the values from the form by ID and add an object to the array.
     buildDropDown();
     displayData();
+}
+
+function clearData() {
+    localStorage.clear();
+    window.location.reload();
 }
